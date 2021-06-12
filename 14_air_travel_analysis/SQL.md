@@ -21,25 +21,26 @@ GROUP BY
 - другие (“other”).
 Назовем получившуюся переменную flights_amount и выведите её значение на экран.
 
-
-<    SELECT 
-        CASE WHEN
-                 aircrafts.model LIKE '%Boeing%' THEN
-                 'Boeing'
-             WHEN 
-                 aircrafts.model LIKE '%Airbus%' THEN
-                 'Airbus'
-             ELSE
-                 'other'
-             END AS modell,
-        COUNT(flights.flight_id) AS flights_amount
-    FROM 
-        flights 
-        INNER JOIN aircrafts ON aircrafts.aircraft_code = flights.aircraft_code
-    WHERE
-        EXTRACT(MONTH FROM flights.departure_time) = 9
-    GROUP BY
-        modell>
+```SQL
+SELECT 
+    CASE WHEN
+             aircrafts.model LIKE '%Boeing%' THEN
+             'Boeing'
+         WHEN 
+             aircrafts.model LIKE '%Airbus%' THEN
+             'Airbus'
+         ELSE
+             'other'
+         END AS modell,
+    COUNT(flights.flight_id) AS flights_amount
+FROM 
+    flights 
+    INNER JOIN aircrafts ON aircrafts.aircraft_code = flights.aircraft_code
+WHERE
+    EXTRACT(MONTH FROM flights.departure_time) = 9
+GROUP BY
+    modell
+```
 
 ### Запрос №3. 
 Посчитаем среднее количество прибывающих рейсов в день для каждого города за август 2018 года. Назовем получившееся поле average_flights, вместе с ним выведем столбец city.
@@ -47,8 +48,8 @@ GROUP BY
 - city,
 - average_flights.
 
-
-<SELECT
+```SQL
+SELECT
     cnt.city,
     AVG(cnt.count_flights) AS average_flights
 FROM
@@ -64,20 +65,22 @@ FROM
         airports.city,
         EXTRACT(DAY FROM flights.arrival_time)) AS cnt
 GROUP BY
-    cnt.city>
+    cnt.city
+```
 
 ### Запрос №4. 
 Установим фестивали, которые проходили с 23 июля по 30 сентября 2018 года в Москве и номер недели, в которую они проходили. Выведем название фестиваля festival_name и номер недели festival_week.
 
-
-<SELECT
+```SQL
+SELECT
     festival_name,
     EXTRACT (WEEK FROM festival_date) AS festival_week
 FROM
     festivals
 WHERE
     festival_city = 'Москва' AND
-    festival_date BETWEEN '2018-07-23' AND '2018-09-30'>
+    festival_date BETWEEN '2018-07-23' AND '2018-09-30'
+```
 
 ### Запрос №5. 
 Для каждой недели с 23 июля по 30 сентября 2018 года посчитаем билеты, которые купили на рейсы в Москву (номер недели week_number и количество билетов ticket_amount). Получим таблицу:
@@ -91,8 +94,8 @@ WHERE
 - festival_week
 - festival_name
 
-
-<SELECT 
+```SQL
+SELECT 
     T.week_number,
     T.ticket_amount,
     T.festival_week,
@@ -130,4 +133,5 @@ LEFT JOIN
 ) t2 
 ON 
     t.week_number = t2.festival_week
-) AS T>
+) AS T
+```
