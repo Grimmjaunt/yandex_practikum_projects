@@ -1,19 +1,19 @@
-###Запрос №1. 
+### Запрос №1. 
 Найдем количество рейсов на каждой модели самолёта с вылетом в сентябре 2018 года. Назовем получившееся поле flights_amount и выведем его. Также напечатаем на экране поле model.
 
 
-<SELECT 
-    aircrafts.model,
-    COUNT(flights.flight_id) AS flights_amount
-FROM 
-    flights 
-    INNER JOIN aircrafts ON aircrafts.aircraft_code = flights.aircraft_code
-WHERE
-    EXTRACT(MONTH FROM flights.departure_time) = 9
-GROUP BY
-    model>
+<    SELECT 
+        aircrafts.model,
+        COUNT(flights.flight_id) AS flights_amount
+    FROM 
+        flights 
+        INNER JOIN aircrafts ON aircrafts.aircraft_code = flights.aircraft_code
+    WHERE
+        EXTRACT(MONTH FROM flights.departure_time) = 9
+    GROUP BY
+        model>
 
-###Запрос №2. 
+### Запрос №2. 
 Посчитаем отправленные в сентябре рейсы самолётов следующих моделей:
 - Boeing,
 - Airbus,
@@ -21,26 +21,26 @@ GROUP BY
 Назовем получившуюся переменную flights_amount и выведите её значение на экран.
 
 
-<SELECT 
-    CASE WHEN
-             aircrafts.model LIKE '%Boeing%' THEN
-             'Boeing'
-         WHEN 
-             aircrafts.model LIKE '%Airbus%' THEN
-             'Airbus'
-         ELSE
-             'other'
-         END AS modell,
-    COUNT(flights.flight_id) AS flights_amount
-FROM 
-    flights 
-    INNER JOIN aircrafts ON aircrafts.aircraft_code = flights.aircraft_code
-WHERE
-    EXTRACT(MONTH FROM flights.departure_time) = 9
-GROUP BY
-    modell>
+<    SELECT 
+        CASE WHEN
+                 aircrafts.model LIKE '%Boeing%' THEN
+                 'Boeing'
+             WHEN 
+                 aircrafts.model LIKE '%Airbus%' THEN
+                 'Airbus'
+             ELSE
+                 'other'
+             END AS modell,
+        COUNT(flights.flight_id) AS flights_amount
+    FROM 
+        flights 
+        INNER JOIN aircrafts ON aircrafts.aircraft_code = flights.aircraft_code
+    WHERE
+        EXTRACT(MONTH FROM flights.departure_time) = 9
+    GROUP BY
+        modell>
 
-###Запрос №3. 
+### Запрос №3. 
 Посчитаем среднее количество прибывающих рейсов в день для каждого города за август 2018 года. Назовем получившееся поле average_flights, вместе с ним выведем столбец city.
 Порядок вывода столбцов:
 - city,
