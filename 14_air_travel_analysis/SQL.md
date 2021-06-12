@@ -2,16 +2,16 @@
 Найдем количество рейсов на каждой модели самолёта с вылетом в сентябре 2018 года. Назовем получившееся поле flights_amount и выведем его. Также напечатаем на экране поле model.
 
 ```SQL
-<    SELECT 
-        aircrafts.model,
-        COUNT(flights.flight_id) AS flights_amount
-    FROM 
-        flights 
-        INNER JOIN aircrafts ON aircrafts.aircraft_code = flights.aircraft_code
-    WHERE
-        EXTRACT(MONTH FROM flights.departure_time) = 9
-    GROUP BY
-        model>
+SELECT 
+    aircrafts.model,
+    COUNT(flights.flight_id) AS flights_amount
+FROM 
+    flights 
+    INNER JOIN aircrafts ON aircrafts.aircraft_code = flights.aircraft_code
+WHERE
+    EXTRACT(MONTH FROM flights.departure_time) = 9
+GROUP BY
+    model
 ```
 
 ### Запрос №2. 
