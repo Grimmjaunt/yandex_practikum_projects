@@ -1,13 +1,13 @@
 ## Прогнозирование оттока клиентов банка
 ### Проект по машинному обучению с учителем (задача классификации)
 #### Используемые библиотеки:
-- pandas
-- numpy
-- math
-- sklearn
-- random
-- matplotlib.pyplot
-- seaborn
+    - pandas
+    - numpy
+    - math
+    - sklearn
+    - random
+    - matplotlib.pyplot
+    - seaborn
 
 
 #### Описание проекта:
