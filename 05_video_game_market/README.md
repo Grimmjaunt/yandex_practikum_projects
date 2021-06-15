@@ -1,12 +1,12 @@
 ## Исследование рынка видеоигр
 ### Проект по исследовательскому и статистическому анализу данных
 #### Используемые библиотеки:
-- pandas
-- numpy
-- matplotlib.pyplot
-- seaborn
-- squarify
-- stats from scipy
+    - pandas
+    - numpy
+    - matplotlib.pyplot
+    - seaborn
+    - squarify
+    - stats from scipy
 
 
 
