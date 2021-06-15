@@ -1,12 +1,12 @@
 ## Определение перспективного тарифа для телеком компании
 ### Проект по статистическому анализу данных
 #### Используемые библиотеки:
-- pandas
-- numpy
-- matplotlib.pyplot
-- seaborn
-- math
-- stats from scipy
+    - pandas
+    - numpy
+    - matplotlib.pyplot
+    - seaborn
+    - math
+    - stats from scipy
 
 
 
