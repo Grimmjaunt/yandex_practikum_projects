@@ -1,12 +1,12 @@
 ## Исследование стоимости недвижимости
 ### Проект по исследовательскому анализу данных
 #### Используемые библиотеки:
-- pandas
-- numpy
-- matplotlib.pyplot
-- saborn
-- IPython.display
-- warnings
+    - pandas
+    - numpy
+    - matplotlib.pyplot
+    - saborn
+    - IPython.display
+    - warnings
 
 
 
