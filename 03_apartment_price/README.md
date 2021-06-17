@@ -4,7 +4,7 @@
     - pandas
     - numpy
     - matplotlib.pyplot
-    - saborn
+    - seaborn
     - IPython.display
     - warnings
 
